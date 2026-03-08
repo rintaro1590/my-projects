@@ -1,0 +1,87 @@
+﻿drop table if exists env_record;
+drop table if exists quake_record;
+drop table if exists room_state;
+drop table if exists kamei;
+drop table if exists account;
+drop table if exists subject;
+drop table if exists stu_record;
+drop table if exists period_master;
+
+create table env_record (
+	datetime timestamp,
+	room_num varchar(10),
+	temperature numeric,
+	humidity numeric,
+	pressure numeric,
+	primary key (datetime,room_num)
+);
+
+create table quake_record (
+	datetime timestamp,
+	room_num varchar(10),
+	level int,
+	primary key (datetime,room_num)
+);
+
+create table room_state (
+	room_num varchar(10) primary key,
+	lit boolean default false,
+	human_cnt int default 0
+);
+
+create table kamei (
+	kamei_id int primary key,
+	kamei_mei varchar(20)
+);
+
+create table account (
+	user_id int primary key,
+	kamei_id int,
+	name varchar(20),
+	password varchar(20),
+	teacher boolean default false
+);
+
+create table subject (
+	subject_id int,
+	user_id int,
+	subject_mei varchar(30),
+	basetime interval,
+	primary key (subject_id, user_id)
+);
+
+create table stu_record (
+	user_id int,
+	subject_id int,
+	room_num varchar(10),
+	checkin timestamp,
+	checkout timestamp,
+	status int
+);
+
+CREATE TABLE period_master (
+    period_id int PRIMARY KEY, 
+    start_time time,    
+    end_time time      
+);
+
+-- 1. 通知を送るための関数を作成
+CREATE OR REPLACE FUNCTION notify_row_insertion()
+RETURNS trigger AS $$
+BEGIN
+  -- 挿入された行(NEW)をJSON化して 'new_row_event' チャンネルに送信
+  PERFORM pg_notify('new_row_event', row_to_json(NEW)::text);
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- 2. 対象のテーブルにトリガーを設定
+CREATE TRIGGER row_insert_trigger
+AFTER INSERT ON quake_record
+FOR EACH ROW EXECUTE FUNCTION notify_row_insertion();
+
+INSERT INTO period_master (period_id, start_time, end_time) VALUES
+(1, '08:50:00', '10:30:00'),
+(2, '10:35:00', '12:15:00'),
+(3, '13:00:00', '14:30:00'),
+(4, '14:35:00', '16:25:00');
