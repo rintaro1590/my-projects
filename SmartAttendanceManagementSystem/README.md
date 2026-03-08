@@ -32,16 +32,16 @@ SmartAttendanceManagementSystem/
 
 ## 動作
 デスクトップpcのホーム画面
-![ホーム](./Images/home.PNG)
+![ホーム](./Images/home.PNG)<br>
 デスクトップpcの詳細画面
-![詳細](./Images/detail.PNG)
+![詳細](./Images/detail.PNG)<br>
 タブレットのログイン画面
-![タブレットログイン](./Images/login.png)
+![タブレットログイン](./Images/login.png)<br>
 タブレットの生徒用
-![タブレット生徒用](./Images/student.png)
+![タブレット生徒用](./Images/student.png)<br>
 タブレットの先生用
+![タブレット先生用](./Images/teacher.png)<br>
 
-![タブレット先生用](./Images/teacher.png)
 
 
 
