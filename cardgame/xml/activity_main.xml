@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <FrameLayout
+            android:id="@+id/cpuCardFrame"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:background="@drawable/white_border"  android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:id="@+id/cpuCardPlayed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ura" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/cheatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="山札を覗き見る (3枚)"
+            android:backgroundTint="#008080"
+            app:layout_constraintTop_toBottomOf="@id/resultText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <LinearLayout
+            android:id="@+id/cheatViewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="#DDFFFFFF"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/cheatButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CPUの持ち札 (シャッフル済み3枚)"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
+
+            <LinearLayout
+                android:id="@+id/cpuCheatCards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="あなたの持ち札 (シャッフル済み3枚)"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
+
+            <LinearLayout
+                android:id="@+id/playerCheatCards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="次のラウンド"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/playerCardFrame"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp"/>
+        <FrameLayout
+            android:id="@+id/playerCardFrame"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:background="@drawable/white_border"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="50dp">
+
+            <ImageView
+                android:id="@+id/playerCardPlayed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ura"/>
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ゲーム開始"
+            app:layout_constraintBottom_toTopOf="@id/resultText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/endGameButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ゲーム終了"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="120dp"/>
+
+        <Button
+            android:id="@+id/replayGameButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="再チャレンジ"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="200dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_view"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="メニュー"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/menu_show_card_history_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="対戦履歴を見る"/>
+
+        <Button
+            android:id="@+id/menu_show_history_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="順位を見る"/>
+
+        <TextView
+            android:id="@+id/menu_user_score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="成績履歴が表示されます。"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/black"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/menu_replay_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="再チャレンジ"/>
+
+        <Button
+            android:id="@+id/menu_exit_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ゲーム終了"/>
+
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
