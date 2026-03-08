@@ -17,7 +17,6 @@
 
 ### 3.EmbeddedTechnologySoftwareDesignRobotContest
 - **概要**: 自律走行ロボットの制御アルゴリズムの実装。
-- **使用技術**: C/C++
 
 ### 4.cardgame
 - **概要**: オブジェクト指向プログラミングの基礎として作成したカードゲーム。
