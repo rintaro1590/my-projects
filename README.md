@@ -14,7 +14,6 @@
 
 ### 2.SmartAttendanceManagementSystem
 - **概要**: 効率的な出席確認を目的としたシステム開発。
-- **使用技術**: PHP, javascript, java, Android Studio, Arduino IDE, Apache, Postgresql, chrony
 
 ### 3.EmbeddedTechnologySoftwareDesignRobotContest
 - **概要**: 自律走行ロボットの制御アルゴリズムの実装。
