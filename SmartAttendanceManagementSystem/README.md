@@ -25,6 +25,7 @@ SmartAttendanceManagementSystem/
 ├── arduino/      # Arduino スケッチ（センサー制御・通信プログラム）
 ├── server/       # バックエンド（PHPスクリプト、Apache設定ファイル）
 └── database/     # DB設計（SQL、テーブル定義書）
+---
 
 ## テーブル設計
 ![DBER](./database/DBER.png)
@@ -39,4 +40,5 @@ SmartAttendanceManagementSystem/
 タブレットの生徒用
 ![タブレット生徒用](./Images/student.png)
 タブレットの先生用
+
 ![タブレット先生用](./Images/teacher.png)
