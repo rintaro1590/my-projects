@@ -11,7 +11,6 @@
 
 ### 1.sugorokugame
 - **概要**: Basys3ボードを使用した、ルーレット形式のすごろくゲーム。
-- **使用技術**: Verilog HDL, Vivado, Basys3
 
 ### 2.SmartAttendanceManagementSystem
 - **概要**: 効率的な出席確認を目的としたシステム開発。
