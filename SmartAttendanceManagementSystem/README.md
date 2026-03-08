@@ -42,7 +42,7 @@ SmartAttendanceManagementSystem/
 タブレットの先生用
 ![タブレット先生用](./Images/teacher.png)<br>
 
-
-
-
+---
+### 制作
+- **作成時期**: 2025年
 
